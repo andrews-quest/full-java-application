@@ -323,10 +323,10 @@
               <span class="menu-arrow arrow_carrot-right"></span>
             </a>
             <ul class="sub">
-              <li><a class="" href="form_component.html">Vehicle Data</a></li>
-              <li><a class="" href="form_validation.html">Maintenance</a></li>
-              <li><a class="" href="form_validation.html">Movements</a></li>
-              <li><a class="" href="form_validation.html">Hires</a></li>
+              <li><a class="" th:href="@{/VehicleData}">Vehicle Data</a></li>
+              <li><a class="" th:href="@{/VehicleMaintenance}">Maintenance</a></li>
+              <li><a class="" th:href="@{/VehicleMovement}">Movements</a></li>
+              <li><a class="" th:href="@{/VehicleHire}">Hires</a></li>
             </ul>
           </li>
 
@@ -337,10 +337,10 @@
               <span class="menu-arrow arrow_carrot-right"></span>
             </a>
             <ul class="sub">
-              <li><a class="" href="form_component.html">Vehicle Make</a></li>
-              <li><a class="" href="form_validation.html">Vehicle Types</a></li>
-              <li><a class="" href="form_validation.html">Vehicle Models</a></li>
-              <li><a class="" href="form_validation.html">Status Values</a></li>
+              <li><a class="" th:href="@{/VehicleMake}">Vehicle Make</a></li>
+              <li><a class="" th:href="@{/VehicleType}">Vehicle Types</a></li>
+              <li><a class="" th:href="@{/VehicleModel}">Vehicle Models</a></li>
+              <li><a class="" th:href="@{/VehicleStatus}">Status Values</a></li>
             </ul>
           </li>
 
@@ -351,11 +351,11 @@
               <span class="menu-arrow arrow_carrot-right"></span>
             </a>
             <ul class="sub">
-              <li><a class="" href="form_component.html">Employees</a></li>
-              <li><a class="" href="form_validation.html">Clients</a></li>
-              <li><a class="" href="form_validation.html">Suppliers</a></li>
-              <li><a class="" href="form_validation.html">Contacts</a></li>
-              <li><a class="" href="form_validation.html">Users</a></li>
+              <li><a class="" th:href="@{/Employee}">Employees</a></li>
+              <li><a class="" th:href="@{/Client}">Clients</a></li>
+              <li><a class="" th:href="@{/Supplier}">Suppliers</a></li>
+              <li><a class="" th:href="@{/Contract}">Contacts</a></li>
+              <li><a class="" th:href="@{/User}">Users</a></li>
             </ul>
           </li>
 
@@ -366,8 +366,8 @@
               <span class="menu-arrow arrow_carrot-right"></span>
             </a>
             <ul class="sub">
-              <li><a class="" href="form_component.html">Job Titles</a></li>
-              <li><a class="" href="form_validation.html">Employee Types</a></li>
+              <li><a class="" th:href="@{/JobTitle}">Job Titles</a></li>
+              <li><a class="" th:href="@{/EmployeeType}">Employee Types</a></li>
             </ul>
           </li>
 
@@ -378,8 +378,8 @@
               <span class="menu-arrow arrow_carrot-right"></span>
             </a>
             <ul class="sub">
-              <li><a class="" href="form_component.html">Invoices</a></li>
-              <li><a class="" href="form_validation.html">Invoice Status Values</a></li>
+              <li><a class="" th:href="@{/Invoice}">Invoices</a></li>
+              <li><a class="" th:href="@{/InvoiceStatus}">Invoice Status Values</a></li>
             </ul>
           </li>
 
@@ -390,9 +390,9 @@
               <span class="menu-arrow arrow_carrot-right"></span>
             </a>
             <ul class="sub">
-              <li><a class="" href="form_component.html">Countries</a></li>
-              <li><a class="" href="form_validation.html">States</a></li>
-              <li><a class="" href="form_validation.html">Locations</a></li>
+              <li><a class="" th:href="@{/Country}">Countries</a></li>
+              <li><a class="" th:href="@{/State}">States</a></li>
+              <li><a class="" th:href="@{/Location}">Locations</a></li>
             </ul>
           </li>
 
@@ -417,6 +417,27 @@
         </div>
         <!-- page start-->
           <h1>List of Countries</h1>
+
+        <table class="table">
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Country Name</th>
+            <th>Continent</th>
+            <th>Capital</th>
+            <th>Nationality</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="country:${countries}">
+            <td th:text="${country.country_id}"></td>
+            <td th:text="${country.country_name}"></td>
+            <td th:text="${country.continent}"></td>
+            <td th:text="${country.country_capital}"></td>
+            <td th:text="${country.nationality}"></td>
+          </tr>
+          </table>
+
         <!-- page end-->
       </section>
     </section>

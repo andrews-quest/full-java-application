@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
+@Table(name="countries")
 @Data
 //@NoArgsConstructor
 //@AllArgsConstructor
@@ -19,9 +20,11 @@ public class Country {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer country_id;
+
+    private String country_name;
     private String code;
-    private String capital;
+    private String country_capital;
     private String description;
     private String nationality;
     private String continent;
