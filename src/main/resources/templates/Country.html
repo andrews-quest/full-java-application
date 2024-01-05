@@ -407,7 +407,7 @@
       <section class="wrapper">
         <div class="row">
           <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa fa-bars"></i> Pages</h3>
+            <h3 class="page-header"><i class="fa fa fa-bars"></i>List of Countries</h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
               <li><i class="fa fa-bars"></i>Pages</li>
@@ -416,7 +416,8 @@
           </div>
         </div>
         <!-- page start-->
-          <h1>List of Countries</h1>
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" data-whatever="@mdo">New Country</button>
 
         <table class="table">
           <thead>
@@ -426,6 +427,7 @@
             <th>Continent</th>
             <th>Capital</th>
             <th>Nationality</th>
+            <th>Actions</th>
           </tr>
           </thead>
           <tbody>
@@ -435,6 +437,11 @@
             <td th:text="${country.continent}"></td>
             <td th:text="${country.country_capital}"></td>
             <td th:text="${country.nationality}"></td>
+            <td>
+              <div class="btn-group">
+                <a class="btn btn-primary" id="editButton" data-toggle="modal" data-target="#editModal">Edit</a>
+              </div>
+            </td>
           </tr>
           </table>
 
@@ -455,6 +462,103 @@
     </div>
   </section>
   <!-- container section end -->
+
+  <!-- modal for adding a new country -->
+  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New Country</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <form th:action="@{/Country/addNew}" method="post">
+            <div class="form-group">
+              <label for="country-name" class="col-form-label">Name</label>
+              <input type="text" class="form-control" id="country-name" name="country_name">
+            </div>
+            <div class="form-group">
+              <label for="country_capital" class="col-form-label">Capital</label>
+              <input type="text" class="form-control" id="country_capital" name="country_capital">
+            </div>
+            <div class="form-group">
+              <label for="continent" class="col-form-label">Continent</label>
+              <input type="text" class="form-control" id="continent" name="continent">
+            </div>
+            <div class="form-group">
+              <label for="country-code" class="col-form-label">Code</label>
+              <input type="text" class="form-control" id="country-code" name="country_code">
+            </div>
+            <div class="form-group">
+              <label for="nationality" class="col-form-label">Nationality</label>
+              <input type="text" class="form-control" id="nationality" name="nationality">
+            </div>
+            <div class="form-group">
+              <!-- Submit button must be inside the form body -->
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal for editing a country -->
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Edit Country</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <form th:action="@{/Country/edit}" method="post">
+                  <div class="form-group">
+                    <label for="country_name_edit" class="col-form-label">Name</label>
+                    <input type="text" class="form-control" id="country_name_edit" name="country_name">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="country_capital_edit" class="col-form-label">Capital</label>
+                    <input type="text" class="form-control" id="country_capital_edit" name="country_capital">
+                  </div>
+                  <div class="form-group">
+                    <label for="continent_edit" class="col-form-label">Continent</label>
+                    <input type="text" class="form-control" id="continent_edit" name="continent">
+                  </div>
+                  <div class="form-group">
+                    <label for="country-code_edit" class="col-form-label">Code</label>
+                    <input type="text" class="form-control" id="country-code_edit" name="country_code">
+                  </div>
+                  <div class="form-group">
+                    <label for="nationality_edit" class="col-form-label">Nationality</label>
+                    <input type="text" class="form-control" id="nationality_edit" name="nationality">
+                  </div>
+                  <div class="form-group">
+
+                    <!-- Submit button must be inside the form body -->
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </form>
+              </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
   <!-- javascripts -->
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -463,6 +567,7 @@
   <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
   <!--custome script for all page-->
   <script src="js/scripts.js"></script>
+
 
 
 </body>
