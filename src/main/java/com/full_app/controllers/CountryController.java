@@ -32,7 +32,7 @@ public class CountryController {
         return "redirect:/Country";
     }
 
-    @RequestMapping("/Country/findById/")
+    @RequestMapping("/Country/findById")
     @ResponseBody
     public Optional<Country> findById(int country_id){
         return countryService.findById(country_id);
@@ -41,6 +41,12 @@ public class CountryController {
     @RequestMapping(value="/Country/edit", method={RequestMethod.GET, RequestMethod.PUT})
     public String edit(Country country){
         countryService.save(country);
+        return "redirect:/Country";
+    }
+
+    @RequestMapping(value="/Country/delete", method={RequestMethod.DELETE, RequestMethod.GET})
+    public String delete(int country_id){
+        countryService.delete(country_id);
         return "redirect:/Country";
     }
 }
