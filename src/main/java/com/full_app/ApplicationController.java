@@ -8,7 +8,7 @@ public class ApplicationController {
 
     @GetMapping("/")
     public String goHome(){
-        return "main_templ";
+        return "index";
     }
 
     @GetMapping("/login")

@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-<head>
+<head th:replace="header_and_sidebar :: head">
 
 </head>
   <body>
+
+  <section th:replace="header_and_sidebar :: header"></section>
+
+  <section th:replace="header_and_sidebar :: aside"></section>
+
   <!--main content start-->
-  <section id="main-content" th:fragment="dashboard">
+  <section id="main-content">
     <section class="wrapper">
       <!--overview start-->
       <div class="row">
@@ -671,6 +676,8 @@
     </div>
   </section>
   <!--main content end-->
+
+  <section th:replace="header_and_sidebar :: scripts"></section>
 
   </body>
 </html>
