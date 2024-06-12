@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,6 +16,7 @@ import java.util.List;
 @Data
 //@NoArgsConstructor
 //@AllArgsConstructor
+@Builder
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "country_id")
 public class Country {
 
@@ -31,4 +33,10 @@ public class Country {
 
     @OneToMany(mappedBy = "country")
     private List<State> states;
+
+    public int get_id() {
+        return this.country_id;
+    }
 }
+
+
