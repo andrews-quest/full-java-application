@@ -14,8 +14,8 @@ import java.util.List;
 @Entity
 @Table(name="countries")
 @Data
-//@NoArgsConstructor
-//@AllArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "country_id")
 public class Country {

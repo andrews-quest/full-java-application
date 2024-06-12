@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-<head th:replace="header_and_sidebar :: head">
+<head th:replace="~{header_and_sidebar :: head}">
 
 </head>
   <body>
 
-  <section th:replace="header_and_sidebar :: header"></section>
+  <section th:replace="~{header_and_sidebar :: header}"></section>
 
-  <section th:replace="header_and_sidebar :: aside"></section>
+  <section th:replace="~{header_and_sidebar :: aside}"></section>
 
   <!--main content start-->
   <section id="main-content">
@@ -677,7 +677,7 @@
   </section>
   <!--main content end-->
 
-  <section th:replace="header_and_sidebar :: scripts"></section>
+  <section th:replace="~{header_and_sidebar :: scripts}"></section>
 
   </body>
 </html>
